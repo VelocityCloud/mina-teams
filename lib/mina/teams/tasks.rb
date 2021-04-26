@@ -56,7 +56,10 @@ namespace :teams do
     request.body = payload.to_json
 
     # Call Teams webhook
-    http.request(request)
+    resp = http.request(request)
+    if resp.code.to_i != 200
+      puts "Failed to notify Teams. Error [#{resp.body}], Status code [#{resp.code}]"
+    end
   rescue => e
     puts "Failed to notify Teams. Error #{e.inspect}"
   end
