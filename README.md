@@ -54,12 +54,8 @@ end
 
 These are the settings you can set:
 ```
-set :teams_url, 'https://navisite.webhook.office.com/webhookb2/xxx/IncomingWebhook/xxx/xxx'
+set :teams_url, 'https://your-company.webhook.office.com/webhookb2/xxx/IncomingWebhook/xxx/xxx'
 ```
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/mina-deploy/mina-teams. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
-## License
-
-T
