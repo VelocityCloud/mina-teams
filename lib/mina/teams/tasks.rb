@@ -9,7 +9,7 @@ namespace :teams do
   set :environment, -> { ENV['to'] }
 
   task :starting do
-    notification = "#{fetch(:author).call} is deploying branch #{branch_name} to #{fetch(:environment).call}"
+    notification = "#{fetch(:author).call} is deploying branch #{branch_name} to #{fetch(:environment).call} 🚀"
     post_teams_channel(notification)
     set(:start_time, Time.now)
   end
@@ -19,12 +19,12 @@ namespace :teams do
     start_time = fetch(:start_time)
     elapsed = end_time.to_i - start_time.to_i
 
-    notification = "#{fetch(:author).call} successfully deployed branch #{branch_name} in #{elapsed} seconds."
+    notification = "🏁 #{fetch(:author).call} successfully deployed branch #{branch_name} in #{elapsed} seconds."
     post_teams_channel(notification)
   end
 
   task :starting_restart do
-    notification = "#{fetch(:author).call} is restarting #{fetch(:environment).call} servers"
+    notification = "#{fetch(:author).call} is restarting #{fetch(:environment).call} servers ▶️"
     post_teams_channel(notification)
     set(:start_time, Time.now)
   end
@@ -34,7 +34,7 @@ namespace :teams do
     start_time = fetch(:start_time)
     elapsed = end_time.to_i - start_time.to_i
 
-    notification = "#{fetch(:author).call} successfully restarted #{fetch(:environment).call} servers in #{elapsed} seconds."
+    notification = "#{fetch(:author).call} successfully restarted #{fetch(:environment).call} servers in #{elapsed} seconds. ✅"
     post_teams_channel(notification)
   end
 
@@ -48,7 +48,7 @@ namespace :teams do
     http.use_ssl = true
 
     payload = {
-      text: message
+      text: "<pre>#{message}<\/pre>"
     }
     headers = {'Content-Type': 'application/json'}
 
